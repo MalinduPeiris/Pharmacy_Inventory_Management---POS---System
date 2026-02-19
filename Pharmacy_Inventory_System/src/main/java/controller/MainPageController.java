@@ -40,22 +40,119 @@ public class MainPageController implements Initializable {
 
     @FXML
     void btnDashboardOnAction(ActionEvent event) {
+        btnDashboard.setStyle(
+                "-fx-background-color: #17a4c4; " +
+                        "-fx-text-fill: white;"
+        );
+        btnSuppliers.setStyle(
+                "-fx-background-color:  white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
+        btnInventory.setStyle(
+                "-fx-background-color: white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
+        btnOrders.setStyle(
+                "-fx-background-color:  white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
+
+        loadPage("dash");
 
     }
 
     @FXML
     void btnInventoryOnAction(ActionEvent event) {
+        btnInventory.setStyle(
+                "-fx-background-color: #17a4c4; " +
+                        "-fx-text-fill: white;"
+        );
+        btnSuppliers.setStyle(
+                "-fx-background-color:  white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
+        btnDashboard.setStyle(
+                "-fx-background-color: white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
+        btnOrders.setStyle(
+                "-fx-background-color:  white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
 
+        loadPage("inventory");
     }
 
     @FXML
     void btnOrderOnAction(ActionEvent event) {
+        btnOrders.setStyle(
+                "-fx-background-color:  #17a4c4; " +
+                        "-fx-text-fill: white;"
+        );
+        btnSuppliers.setStyle(
+                "-fx-background-color:  white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
+        btnDashboard.setStyle(
+                "-fx-background-color: white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
+        btnInventory.setStyle(
+                "-fx-background-color: white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
 
+        loadPage("orders");
     }
 
     @FXML
     void btnSuppliersOnAction(ActionEvent event) {
+        btnSuppliers.setStyle(
+                "-fx-background-color:  #17a4c4; " +
+                        "-fx-text-fill: white;"
+        );
+        btnDashboard.setStyle(
+                "-fx-background-color: white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
+        btnInventory.setStyle(
+                "-fx-background-color: white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
+        btnOrders.setStyle(
+                "-fx-background-color:  white; " +
+                        "-fx-text-fill: #17a4c4"
+        );
+        loadPage("suppliers");
+    }
 
+    private void loadPage(String pageName){
+        try {
+            URL resource=null;
+            switch (pageName){
+                case "dash":
+                    resource=this.getClass().getResource("/view/mainPageComponents.fxml");
+                    break;
+                case "inventory":
+                    resource=this.getClass().getResource("/view/loginPage.fxml");
+                    break;
+                case "suppliers":
+                    resource=this.getClass().getResource("/view/loginPage.fxml");
+                    break;
+                case "orders":
+                    resource=this.getClass().getResource("/view/loginPage.fxml");
+                    break;
+            }
+
+            assert resource!=null;
+
+            Parent parent = FXMLLoader.load(resource);
+
+            changingPagesAnchorPane.getChildren().clear();
+            changingPagesAnchorPane.getChildren().add(parent);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -73,16 +170,6 @@ public class MainPageController implements Initializable {
 
         System.out.println("System Start At : "+LocalDate.now()+"    Time : "+customizeTime);
 
-        try {
-            URL resource =this.getClass().getResource("/view/mainPageComponents.fxml");
-            Parent parent = FXMLLoader.load(resource);
-
-            changingPagesAnchorPane.getChildren().clear();
-            changingPagesAnchorPane.getChildren().add(parent);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-
+        loadPage("dash");
     }
 }
