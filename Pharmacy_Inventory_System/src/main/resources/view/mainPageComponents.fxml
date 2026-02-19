@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1502.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainPageComponentsController">
+    <children>
+        <AnchorPane fx:id="pagesAnchorPane" prefHeight="723.0" prefWidth="1501.0">
+            <children>
+                <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="165.0" layoutX="31.0" layoutY="76.0" stroke="#e7e7e7" strokeType="INSIDE" width="200.0" />
+                <Text fill="#969696" layoutX="70.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Stock Items" textAlignment="CENTER" wrappingWidth="121.33674621582031">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+                <Text fx:id="lblTotalStockCount" layoutX="65.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0000" textAlignment="CENTER" wrappingWidth="131.20000000000005">
+                    <font>
+                        <Font name="System Bold" size="29.0" />
+                    </font>
+                </Text>
+                <ImageView fitHeight="48.0" fitWidth="72.0" layoutX="106.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/parcel.png" />
+                    </image>
+                </ImageView>
+                <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="165.0" layoutX="253.0" layoutY="76.0" stroke="#e7e7e7" strokeType="INSIDE" width="200.0" />
+                <Text fill="#969696" layoutX="305.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Daily Revenue" textAlignment="CENTER" wrappingWidth="95.73675537109375">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+                <Text fx:id="lblRevenue" layoutX="261.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rs. 0000000" textAlignment="CENTER" wrappingWidth="186.11755371093756">
+                    <font>
+                        <Font name="System Bold" size="29.0" />
+                    </font>
+                </Text>
+                <ImageView fitHeight="48.0" fitWidth="72.0" layoutX="328.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/revenue.png" />
+                    </image>
+                </ImageView>
+                <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="162.0" layoutX="475.0" layoutY="78.0" stroke="#e7e7e7" strokeType="INSIDE" width="200.0" />
+                <Text fill="#969696" layoutX="516.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Customers" textAlignment="CENTER" wrappingWidth="117.6000274658204">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+                <Text fx:id="lblCustomerCount" layoutX="509.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00000" textAlignment="CENTER" wrappingWidth="131.20000000000005">
+                    <font>
+                        <Font name="System Bold" size="29.0" />
+                    </font>
+                </Text>
+                <ImageView fitHeight="48.0" fitWidth="72.0" layoutX="550.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/customer.png" />
+                    </image>
+                </ImageView>
+                <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="161.0" layoutX="696.0" layoutY="79.0" stroke="#e7e7e7" strokeType="INSIDE" width="200.0" />
+                <Text fill="#969696" layoutX="727.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Active Suppliers" textAlignment="CENTER" wrappingWidth="138.93682861328125">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+                <Text fx:id="lblSupplierCount" layoutX="730.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0000" textAlignment="CENTER" wrappingWidth="131.20000000000005">
+                    <font>
+                        <Font name="System Bold" size="29.0" />
+                    </font>
+                </Text>
+                <ImageView fitHeight="48.0" fitWidth="72.0" layoutX="772.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/supplier.png" />
+                    </image>
+                </ImageView>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="618.0" layoutX="920.0" layoutY="80.0" stroke="#e7e7e7" strokeType="INSIDE" width="569.0" />
+            <Text layoutX="31.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory Dashboard">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Text>
+            <Text fill="#a4a4a4" layoutX="32.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back , Doctor" />
+            <JFXButton layoutX="1214.0" layoutY="16.0" onAction="#btnAddNewMedicineOnAction" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #4834d4;" text="Add New Medicine" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="25.0" fitWidth="36.0" layoutX="1229.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/plus(1).png" />
+               </image>
+            </ImageView>
+            <Rectangle fill="#f6e58d" height="75.0" layoutX="920.0" layoutY="81.0" stroke="#e7e7e7" strokeType="INSIDE" width="569.0" />
+            <Text layoutX="994.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expiry Notification" wrappingWidth="187.80000000000018">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="68.0" fitWidth="51.0" layoutX="939.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/expiry.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#ffd400" height="35.0" layoutX="1332.0" layoutY="98.0" stroke="#e7e7e7" strokeType="INSIDE" width="141.0" />
+            <Text layoutX="1340.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NEAR EXPIRY" wrappingWidth="132.33332519531268">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <TableView fx:id="tblExpiry" layoutX="927.0" layoutY="218.0" prefHeight="464.0" prefWidth="553.0" stylesheets="@../css/table.css">
+              <columns>
+                <TableColumn fx:id="colMediId" prefWidth="78.933349609375" text="MEDI ID" />
+                <TableColumn fx:id="colMediName" prefWidth="136.26654052734375" text="NAME" />
+                  <TableColumn fx:id="colMediCategory" prefWidth="118.13330078125" text="CATEGORY" />
+                  <TableColumn fx:id="colMediDosage" prefWidth="92.000244140625" text="DOSAGE" />
+                  <TableColumn fx:id="colMediExpiry" prefWidth="117.5999755859375" text="EXPIRY" />
+              </columns>
+            </TableView>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="436.0" layoutX="34.0" layoutY="260.0" stroke="#e7e7e7" strokeType="INSIDE" width="862.0" />
+            <TableView fx:id="tblBestSelling" layoutX="51.0" layoutY="373.0" prefHeight="290.0" prefWidth="827.0" stylesheets="@../css/table.css">
+               <columns>
+                  <TableColumn fx:id="colSellingID" prefWidth="90.93331146240234" text="MEDI ID" />
+                  <TableColumn fx:id="colSellingName" prefWidth="140.5333709716797" text="NAME" />
+                  <TableColumn fx:id="colSellingCategory" prefWidth="172.26666259765625" text="CATEGORY" />
+                  <TableColumn fx:id="colSellingDosage" prefWidth="91.73333740234375" text="DOSAGE" />
+                  <TableColumn fx:id="colSellingQuantitySold" prefWidth="104.0001220703125" text="QUANTITY SOLD" />
+                  <TableColumn fx:id="colSellingUnitPrice" prefWidth="99.46661376953125" text="UNITPRICE" />
+                  <TableColumn fx:id="colSellingSubTotal" prefWidth="112.800048828125" text="SUB TOTAL (Rs.)" />
+               </columns>
+            </TableView>
+            <Rectangle fill="#44bd32" height="75.0" layoutX="33.0" layoutY="257.0" stroke="#e7e7e7" strokeType="INSIDE" width="862.0" />
+            <Text layoutX="112.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Best Selling Items" wrappingWidth="284.8666503906252">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="68.0" fitWidth="51.0" layoutX="44.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/profit-up.png" />
+               </image>
+            </ImageView>
+            </children></AnchorPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="logingPageAnchorPane" prefHeight="785.0" prefWidth="1501.0" style="-fx-background-color: #f2f2f2;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LogingController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#efefef" height="785.0" layoutX="-1.0" stroke="WHITE" strokeType="INSIDE" width="1502.0" />
+      <ImageView fitHeight="169.0" fitWidth="193.0" layoutX="674.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/medical-team.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="588.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PharmaStock Manager" textAlignment="CENTER" wrappingWidth="337.3367919921875">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#6b6b6b" layoutX="591.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pharmacy Inventory Management System" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="468.0" layoutX="500.0" layoutY="260.0" stroke="WHITE" strokeType="INSIDE" width="513.0" />
+      <Text fill="#6b6b6b" layoutX="556.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtUserName" layoutX="556.0" layoutY="340.0" prefHeight="55.0" prefWidth="395.0" promptText="Enter Username">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="25.0" fitWidth="22.0" layoutX="915.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/user.png" />
+         </image>
+      </ImageView>
+      <Text fill="#6b6b6b" layoutX="554.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtPassword" layoutX="554.0" layoutY="456.0" prefHeight="59.0" prefWidth="396.0" promptText="* * * * * * * * * * * * ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="25.0" fitWidth="22.0" layoutX="914.0" layoutY="475.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/padlock.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="554.0" layoutY="602.0" onAction="#btnSignInOnAction" prefHeight="63.0" prefWidth="398.0" style="-fx-background-color: #4834d4;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="29.0" fitWidth="31.0" layoutX="833.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/check-in.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="lblAlert" fill="RED" layoutX="520.0" layoutY="555.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #a66464;" textAlignment="CENTER" wrappingWidth="465.2692565917969">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="785.0" prefWidth="1501.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainPageController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="66.0" stroke="WHITE" strokeType="INSIDE" width="1501.0" />
+      <Text layoutX="70.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PharmaStock Manager" wrappingWidth="250.4033660888672">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="48.0" fitWidth="51.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/medical-team.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btnSuppliers" graphicTextGap="6.0" layoutX="873.0" layoutY="14.0" onAction="#btnSuppliersOnAction" prefHeight="42.0" prefWidth="131.0" style="-fx-background-color: white;" text="Suppliers" textAlignment="CENTER" textFill="#17a4c4" underline="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnOrders" graphicTextGap="6.0" layoutX="1075.0" layoutY="13.0" onAction="#btnOrderOnAction" prefHeight="42.0" prefWidth="138.0" style="-fx-background-color: white;" text="Orders" textAlignment="CENTER" textFill="#17a4c4" underline="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <AnchorPane fx:id="changingPagesAnchorPane" layoutY="66.0" prefHeight="720.0" prefWidth="1502.0" />
+      <Text fx:id="lblMainPageDate" fill="#868686" layoutX="1335.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0000 - 00 - 00" textAlignment="RIGHT" wrappingWidth="139.5325927734375">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblMainPageTime" fill="#868686" layoutX="1388.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00 : 00" textAlignment="RIGHT" wrappingWidth="86.1380615234375">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Text>
+      <Text fill="#1b0f9e" layoutX="71.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="POS" wrappingWidth="48.158416748046875">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="btnDashboard" graphicTextGap="6.0" layoutX="453.0" layoutY="15.0" onAction="#btnDashboardOnAction" prefHeight="42.0" prefWidth="131.0" style="-fx-background-color: white;" text="Dashboard" textAlignment="CENTER" textFill="#17a4c4" underline="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnInventory" graphicTextGap="6.0" layoutX="661.0" layoutY="14.0" onAction="#btnInventoryOnAction" prefHeight="42.0" prefWidth="138.0" style="-fx-background-color: white;" text="Inventory" textAlignment="CENTER" textFill="#17a4c4" underline="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

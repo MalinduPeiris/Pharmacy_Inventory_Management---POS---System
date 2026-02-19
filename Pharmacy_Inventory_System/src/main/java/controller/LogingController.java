@@ -1,0 +1,80 @@
+package controller;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+
+import java.io.IOException;
+import java.net.URL;
+
+public class LogingController {
+
+    private final String adminName="m";
+    private final String adminPassword="1";
+    public Text lblAlert;
+
+
+    @FXML
+    private AnchorPane logingPageAnchorPane;
+
+    @FXML
+    private TextField txtPassword;
+
+    @FXML
+    private TextField txtUserName;
+
+    public void btnSignInOnAction(ActionEvent actionEvent) {
+        lblAlert.setText("");
+        lblAlert.setStyle("-fx-text-fill: #ff0000;");
+        if(!txtUserName.getText().isEmpty()){
+            if (!txtPassword.getText().isEmpty()){
+                String username =txtUserName.getText();
+                String password=txtPassword.getText();
+                if(username.equals(adminName)){
+                    if (password.equals(adminPassword)){
+                        lblAlert.setStyle("-fx-fill: #00d933;");
+                        lblAlert.setText("Logging Success !!");
+
+                        try {
+                            URL resource =this.getClass().getResource("/view/mainPage.fxml");
+                            Parent parent=FXMLLoader.load(resource);
+
+                            logingPageAnchorPane.getChildren().clear();
+                            logingPageAnchorPane.getChildren().add(parent);
+
+
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+
+
+                    }else {
+                        new Alert(Alert.AlertType.WARNING,"Incorrect password .please try again !!");
+                        txtPassword.clear();
+                        lblAlert.setText("Incorrect password .please try again !!");
+                    }
+                }else {
+                    new Alert(Alert.AlertType.WARNING,"Incorrect username .please try again !!");
+                    txtPassword.clear();
+                    txtUserName.clear();
+                    lblAlert.setText("Incorrect username and password .please try again !!");
+                }
+
+            }else {
+                lblAlert.setText("Please fill the password field and try again !!");
+                new Alert(Alert.AlertType.WARNING,"Please fill the password field and try again !!");
+            }
+
+        }else {
+            lblAlert.setText("Please fill the username field and try again !!");
+            new Alert(Alert.AlertType.WARNING,"Please fill the username field and try again !!");
+        }
+
+
+    }
+}
