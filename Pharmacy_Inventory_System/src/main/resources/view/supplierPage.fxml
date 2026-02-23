@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1502.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierPageController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#efefef" height="724.0" layoutX="-1.0" layoutY="-2.0" stroke="WHITE" strokeType="INSIDE" width="1504.0" />
+      <Text layoutX="34.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier Directory">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Text>
+      <Text layoutX="34.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage and oversee your wholesale pharmaceutical providers">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="735.0" layoutY="75.0" prefHeight="95.0" prefWidth="239.0" style="-fx-background-color: white;" text=" " textFill="WHITE" />
+      <Text layoutX="752.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Suppliers">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblSupplierCount" layoutX="752.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0000">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Text>
+      <Text layoutX="446.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="497.0" layoutX="35.0" layoutY="196.0" stroke="WHITE" strokeType="INSIDE" width="942.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="643.0" layoutX="996.0" layoutY="50.0" stroke="WHITE" strokeType="INSIDE" width="475.0" />
+      <Text layoutX="1052.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier Details">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Text>
+      <Line endX="337.0" endY="1.52587890625E-5" layoutX="1134.0" layoutY="145.0" startX="-138.0" startY="1.52587890625E-5" stroke="#848484" />
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="1009.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/resume.png" />
+         </image>
+      </ImageView>
+      <Text fill="#666666" layoutX="1054.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Or Update Information Below">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#8c8c8c" layoutX="1029.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COMPANY NAME ">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtCompanyName" layoutX="1027.0" layoutY="202.0" prefHeight="38.0" prefWidth="409.0" promptText="e.g. HealthPort Solutions">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Text fill="#8c8c8c" layoutX="1029.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONTACT PERSON NAME">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtPersonName" layoutX="1026.0" layoutY="294.0" prefHeight="38.0" prefWidth="409.0" promptText="Full name of contact ">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Text fill="#8c8c8c" layoutX="1030.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PHONE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtPhoneNumber" layoutX="1027.0" layoutY="383.0" prefHeight="38.0" prefWidth="188.0" promptText="0710000000">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Text fill="#8c8c8c" layoutX="1233.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtEmail" layoutX="1232.0" layoutY="383.0" prefHeight="38.0" prefWidth="202.0" promptText="contact@gmail.com">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Text fill="#8c8c8c" layoutX="1029.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Company Full Address">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="txtCompanyAddress" layoutX="1027.0" layoutY="474.0" prefHeight="67.0" prefWidth="408.0" promptText="Full Physical Address">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextArea>
+      <ImageView fitHeight="50.0" fitWidth="51.0" layoutX="897.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/supplier.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblSuppliers" layoutX="44.0" layoutY="281.0" prefHeight="384.0" prefWidth="923.0" stylesheets="@../css/table.css">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="59.466678619384766" text="ID" />
+          <TableColumn fx:id="colCompany" prefWidth="140.80001068115234" text="COMPANY" />
+            <TableColumn fx:id="colName" prefWidth="144.0" text="SUPPLIER NAME" />
+            <TableColumn fx:id="colPhone" prefWidth="116.26666259765625" text="PHONE" />
+            <TableColumn fx:id="colEmail" prefWidth="161.3333740234375" text="EMAIL" />
+            <TableColumn fx:id="colAddress" prefWidth="187.46661376953125" text="ADDRESS" />
+            <TableColumn fx:id="colRegisterDate" prefWidth="101.60003662109375" text="REGISTER DATE" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtSearchSupplierByName" layoutX="49.0" layoutY="214.0" prefHeight="38.0" prefWidth="321.0" promptText="Search Supplier By Name ">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtSearchSupplierByPhone" layoutX="395.0" layoutY="214.0" prefHeight="38.0" prefWidth="320.0" promptText="Search Supplier By PhoneNumber">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <JFXButton layoutX="732.0" layoutY="214.0" onAction="#btnSearchSupplierOnAction" prefHeight="38.0" prefWidth="233.0" style="-fx-background-color: #006266;" text="Search Supplier" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="1028.0" layoutY="563.0" onAction="#btnAddSupplierOnAction" prefHeight="38.0" prefWidth="194.0" style="-fx-background-color: #009432;" text="ADD Supplier" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="18.0" fitWidth="21.0" layoutX="1040.0" layoutY="573.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/add-user.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="1028.0" layoutY="626.0" onAction="#btnClearOnAction" prefHeight="38.0" prefWidth="194.0" style="-fx-background-color: #636e72;" text="Clear Fields" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="1039.0" layoutY="635.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/broom.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="1241.0" layoutY="563.0" onAction="#btnUpdateSupplierOnAction" prefHeight="38.0" prefWidth="194.0" style="-fx-background-color: #0984e3;" text="Update Supplier" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="21.0" fitWidth="19.0" layoutX="1251.0" layoutY="573.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/diskette.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="1240.0" layoutY="626.0" onAction="#btnDeleteSupplierOnAction" prefHeight="38.0" prefWidth="194.0" style="-fx-background-color: #b33939;" text="Update Supplier" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="20.0" fitWidth="17.0" layoutX="1250.0" layoutY="637.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="21.0" layoutX="754.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/magnifying-glass.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
