@@ -58,7 +58,7 @@
             <Image url="@../img/padlock.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="554.0" layoutY="602.0" onAction="#btnSignInOnAction" prefHeight="63.0" prefWidth="398.0" style="-fx-background-color: #4834d4;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
+      <JFXButton layoutX="554.0" layoutY="602.0" onAction="#btnSignInOnAction" prefHeight="63.0" prefWidth="398.0" style="-fx-background-color: #17a4c4;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

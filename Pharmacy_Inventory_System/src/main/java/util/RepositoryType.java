@@ -2,6 +2,6 @@ package util;
 
 public enum RepositoryType {
 
-    DASHBOARD
+    DASHBOARD,MEDICINE
 
 }

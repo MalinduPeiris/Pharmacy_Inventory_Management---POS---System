@@ -4,7 +4,9 @@ import db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -17,6 +19,7 @@ import service.ServiceFactory;
 import service.custome.DashboardService;
 import util.ServiceType;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -92,6 +95,20 @@ public class MainPageComponentsController implements Initializable {
     @FXML
     void btnAddNewMedicineOnAction(ActionEvent event) {
 
+        try {
+            URL resource = this.getClass().getResource("/view/medicinePage.fxml");
+
+            assert resource!=null;
+
+            Parent parent=FXMLLoader.load(resource);
+
+            pagesAnchorPane.getChildren().clear();
+            pagesAnchorPane.getChildren().add(parent);
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

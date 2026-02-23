@@ -1,6 +1,8 @@
 package controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,10 +14,12 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import javafx.util.Duration;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 public class MainPageController implements Initializable {
+
 
     @FXML
     private JFXButton btnDashboard;
@@ -28,6 +32,8 @@ public class MainPageController implements Initializable {
 
     @FXML
     private JFXButton btnSuppliers;
+
+    public JFXButton btnSales;
 
     @FXML
     private AnchorPane changingPagesAnchorPane;
@@ -56,6 +62,10 @@ public class MainPageController implements Initializable {
                 "-fx-background-color:  white; " +
                         "-fx-text-fill: #17a4c4;"
         );
+        btnSales.setStyle(
+                "-fx-background-color: white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
 
         loadPage("dash");
 
@@ -79,6 +89,10 @@ public class MainPageController implements Initializable {
                 "-fx-background-color:  white; " +
                         "-fx-text-fill: #17a4c4;"
         );
+        btnSales.setStyle(
+                "-fx-background-color: white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
 
         loadPage("inventory");
     }
@@ -98,6 +112,10 @@ public class MainPageController implements Initializable {
                         "-fx-text-fill: #17a4c4;"
         );
         btnInventory.setStyle(
+                "-fx-background-color: white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
+        btnSales.setStyle(
                 "-fx-background-color: white; " +
                         "-fx-text-fill: #17a4c4;"
         );
@@ -123,7 +141,36 @@ public class MainPageController implements Initializable {
                 "-fx-background-color:  white; " +
                         "-fx-text-fill: #17a4c4"
         );
+        btnSales.setStyle(
+                "-fx-background-color: white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
         loadPage("suppliers");
+    }
+
+    public void btnSalesOnAction(ActionEvent actionEvent) {
+        btnSales.setStyle(
+                "-fx-background-color:  #17a4c4; " +
+                        "-fx-text-fill: white;"
+        );
+        btnSuppliers.setStyle(
+                "-fx-background-color: white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
+        btnDashboard.setStyle(
+                "-fx-background-color: white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
+        btnInventory.setStyle(
+                "-fx-background-color: white; " +
+                        "-fx-text-fill: #17a4c4;"
+        );
+        btnOrders.setStyle(
+                "-fx-background-color:  white; " +
+                        "-fx-text-fill: #17a4c4"
+        );
+        loadPage("sales");
+
     }
 
     private void loadPage(String pageName){
@@ -134,12 +181,15 @@ public class MainPageController implements Initializable {
                     resource=this.getClass().getResource("/view/mainPageComponents.fxml");
                     break;
                 case "inventory":
-                    resource=this.getClass().getResource("/view/loginPage.fxml");
+                    resource=this.getClass().getResource("/view/medicinePage.fxml");
                     break;
                 case "suppliers":
-                    resource=this.getClass().getResource("/view/loginPage.fxml");
+                    resource=this.getClass().getResource("/view/supplierPage.fxml");
                     break;
                 case "orders":
+                    resource=this.getClass().getResource("/view/loginPage.fxml");
+                    break;
+                case "sales":
                     resource=this.getClass().getResource("/view/loginPage.fxml");
                     break;
             }
@@ -166,10 +216,21 @@ public class MainPageController implements Initializable {
         String customizeTime=time.charAt(0)+""+time.charAt(1)+""+time.charAt(2)+""+time.charAt(3)+""+time.charAt(4);
 
         lblMainPageDate.setText(LocalDate.now()+"");
-        lblMainPageTime.setText(customizeTime);
+
+        Timeline timeline = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            LocalTime now = LocalTime.now();
+            lblMainPageTime.setText(now.getHour() + ":" + now.getMinute() + ":" + now.getSecond());
+        }),
+                new KeyFrame(Duration.seconds(1))
+        );
+
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
 
         System.out.println("System Start At : "+LocalDate.now()+"    Time : "+customizeTime);
 
         loadPage("dash");
     }
+
+
 }

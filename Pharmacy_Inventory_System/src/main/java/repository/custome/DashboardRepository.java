@@ -3,7 +3,19 @@ package repository.custome;
 import model.tm.DashboardTm;
 import repository.CrudRepository;
 
-public interface DashboardRepository extends CrudRepository<DashboardTm,String> {
+import java.util.List;
 
+public interface DashboardRepository extends CrudRepository<DashboardTm,String> {
+    List<DashboardTm> getAllExpiryMedicineDetail();
+
+    List<DashboardTm> getAllBestSoldMedicine();
+
+    int getMedicineCount();
+
+    double getTodaySales();
+
+    int getCustomerCount();
+
+    int getSupplierCount();
 
 }

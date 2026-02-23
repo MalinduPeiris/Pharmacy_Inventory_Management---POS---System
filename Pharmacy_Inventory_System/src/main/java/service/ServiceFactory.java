@@ -1,6 +1,7 @@
 package service;
 
 import service.custome.impl.DashboardServiceImpl;
+import service.custome.impl.MedicineServiceImpl;
 import util.ServiceType;
 
 public class ServiceFactory {
@@ -19,6 +20,8 @@ public class ServiceFactory {
         switch (serviceType){
             case DASHBOARD :
                 return (T) new DashboardServiceImpl();
+            case MEDICINE :
+                return (T) new MedicineServiceImpl();
         }
         return null;
     }
