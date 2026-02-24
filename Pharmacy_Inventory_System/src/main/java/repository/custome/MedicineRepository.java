@@ -7,7 +7,7 @@ import repository.CrudRepository;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface MedicineRepository extends CrudRepository<MedicineTM,String> {
+public interface MedicineRepository extends CrudRepository<MedicineTM,Integer> {
 
     List<MedicineTM> getAllMedicineDetails() throws SQLException;
 

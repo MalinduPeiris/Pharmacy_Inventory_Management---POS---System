@@ -2,6 +2,7 @@ package service;
 
 import service.custome.impl.DashboardServiceImpl;
 import service.custome.impl.MedicineServiceImpl;
+import service.custome.impl.SupplierServiceImpl;
 import util.ServiceType;
 
 public class ServiceFactory {
@@ -22,6 +23,8 @@ public class ServiceFactory {
                 return (T) new DashboardServiceImpl();
             case MEDICINE :
                 return (T) new MedicineServiceImpl();
+            case SUPPLIER:
+                return (T) new SupplierServiceImpl();
         }
         return null;
     }

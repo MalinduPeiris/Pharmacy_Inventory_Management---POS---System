@@ -2,6 +2,7 @@ package repository;
 
 import repository.custome.impl.DashboardRepositoryImpl;
 import repository.custome.impl.MedicineRepositoryImpl;
+import repository.custome.impl.SupplierRepositoryImpl;
 import service.custome.impl.DashboardServiceImpl;
 import util.RepositoryType;
 import util.ServiceType;
@@ -22,6 +23,8 @@ public class RepositoryFactory {
                 return (T) new DashboardRepositoryImpl();
             case MEDICINE:
                 return (T) new MedicineRepositoryImpl();
+            case SUPPLIER:
+                return (T) new SupplierRepositoryImpl();
         }
         return null;
     }
