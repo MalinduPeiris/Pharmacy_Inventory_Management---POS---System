@@ -21,7 +21,7 @@ public interface MedicineService extends SuperService {
 
     boolean deleteMedicineDetails(int medicineId) throws SQLException;
 
-
+    void updateExpiredItem();
 
 
 }

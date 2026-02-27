@@ -2,6 +2,7 @@ package repository.custome;
 
 import model.Medicine;
 import model.tm.MedicineTM;
+import model.tm.OrderCartTM;
 import repository.CrudRepository;
 
 import java.sql.SQLException;
@@ -21,7 +22,8 @@ public interface MedicineRepository extends CrudRepository<MedicineTM,Integer> {
 
     boolean deleteMedicineDetails(int medicineId) throws SQLException;
 
+    boolean updateStock(List<OrderCartTM> saleItemList);
 
-
+    void updateExpiredMedicines();
 
 }

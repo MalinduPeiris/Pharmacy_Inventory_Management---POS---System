@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class OrderCartTM {
 
-    private String medicineId;
+    private int medicineId;
     private String orderName;
     private String dosage;
     private double unitPrice;

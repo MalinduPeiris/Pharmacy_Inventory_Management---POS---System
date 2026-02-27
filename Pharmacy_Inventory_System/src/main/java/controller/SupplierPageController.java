@@ -212,11 +212,8 @@ public class SupplierPageController implements Initializable {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void btnReloadTableOnAction(ActionEvent actionEvent) {
         loadTable();
-        setFieldsFromTable();
-        loadSupplierCount();
     }
 
     private void loadTable(){
@@ -241,27 +238,6 @@ public class SupplierPageController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    private void setColumns(){
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colCompany.setCellValueFactory(new PropertyValueFactory<>("company"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
-        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        colRegisterDate.setCellValueFactory(new PropertyValueFactory<>("registerDate"));
-    }
-
-    private void clearAllFields(){
-        lblSupplierIdText.setText("");
-        lblSupplierIdValue.setText("");
-
-        txtCompanyName.clear();
-        txtPersonName.clear();
-        txtPhoneNumber.clear();
-        txtEmail.clear();
-        txtCompanyAddress.clear();
     }
 
     private void setFieldsFromTable(){
@@ -299,7 +275,31 @@ public class SupplierPageController implements Initializable {
         txtCompanyAddress.setText(supplier.getAddress());
     }
 
-    public void btnReloadTableOnAction(ActionEvent actionEvent) {
+    private void setColumns(){
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colCompany.setCellValueFactory(new PropertyValueFactory<>("company"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colRegisterDate.setCellValueFactory(new PropertyValueFactory<>("registerDate"));
+    }
+
+    private void clearAllFields(){
+        lblSupplierIdText.setText("");
+        lblSupplierIdValue.setText("");
+
+        txtCompanyName.clear();
+        txtPersonName.clear();
+        txtPhoneNumber.clear();
+        txtEmail.clear();
+        txtCompanyAddress.clear();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         loadTable();
+        setFieldsFromTable();
+        loadSupplierCount();
     }
 }

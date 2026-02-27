@@ -8,10 +8,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import model.OrderCustomer;
+import model.OrderSale;
 import model.tm.MedicineTM;
 import model.tm.OrderCartTM;
 import service.ServiceFactory;
 import service.custome.MedicineService;
+import service.custome.OrderService;
 import util.ServiceType;
 
 import java.net.URL;
@@ -138,7 +141,9 @@ public class AddOrderPageController implements Initializable {
 
 
     MedicineService medicineService= ServiceFactory.getInstance().getServiceType(ServiceType.MEDICINE);
+    OrderService orderService=ServiceFactory.getInstance().getServiceType(ServiceType.ORDER);
 
+    private ArrayList<OrderCartTM> orderCartTMSList=new ArrayList<>();
 
     @FXML
     void btnAddCartClearFormOnAction(ActionEvent event) {
@@ -210,7 +215,6 @@ public class AddOrderPageController implements Initializable {
         }
     }
 
-    private ArrayList<OrderCartTM> orderCartTMSList=new ArrayList<>();
 
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
@@ -224,7 +228,7 @@ public class AddOrderPageController implements Initializable {
                     int buyingQty=Integer.parseInt(buyingQtyString);
 
                     if(buyingQty<=availableQty){
-                        String medicineId=lblOrderIdValue.getText();
+                        int medicineId=Integer.parseInt(lblOrderIdValue.getText());
                         String medicineName=cmbOrderItem.getValue().toString().split(" - ")[1];
                         String medicineDosage=txtDosage.getText();
                         double medicineUnitPrice=Double.parseDouble(txtUnitPrice.getText());
@@ -264,7 +268,7 @@ public class AddOrderPageController implements Initializable {
 
     @FXML
     void btnApplyDiscountOnAction(ActionEvent event) {
-
+        setGrandTotalValue();
     }
 
     @FXML
@@ -294,20 +298,7 @@ public class AddOrderPageController implements Initializable {
 
     }
 
-    private void setGrandTotalValue(){
-        double subTotal=0;
-        for(OrderCartTM orderCartTM: orderCartTMSList){
-            subTotal+=orderCartTM.getOrderTotal();
 
-        }
-
-        double tax=subTotal*0.05;
-        double grandTotal=subTotal+tax;
-
-        lblSubTotal.setText(subTotal+"");
-        lblTax.setText(tax+"");
-        lblGrandTotal.setText(grandTotal+"");
-    }
 
     @FXML
     void btnGenerateInvoiceOnAction(ActionEvent event) {
@@ -315,10 +306,33 @@ public class AddOrderPageController implements Initializable {
         if(!grandTotalString.isEmpty()) {
             double grandTotal = Double.parseDouble(lblGrandTotal.getText());
             if (grandTotal > 0) {
+                if(!lblCustPhoneNumberValue.getText().isEmpty()){
+                    String custName=lblCustNameValue.getText();
+                    String custPhone=lblCustPhoneNumberValue.getText();
+                    String custEmail=lblCustEmailValue.getText();
 
+                    double totalAmount=Double.parseDouble(lblSubTotal.getText());
+                    double discount=Double.parseDouble(lblDiscount.getText());
+                    double netTotal=Double.parseDouble(lblGrandTotal.getText());
+
+                    OrderCustomer orderCustomer = new OrderCustomer(custName, custPhone, custEmail);
+                    OrderSale orderSale=new OrderSale(totalAmount,discount,netTotal);
+
+                    boolean isPlacedOrder = orderService.placeOrder(orderCartTMSList, orderCustomer, orderSale);
+                    if(isPlacedOrder){
+                        new Alert(Alert.AlertType.INFORMATION, "Order Added Success Thank You For Your Order !!").show();
+                        clearAllFields();
+                        loadTable();
+                    }else{
+                        new Alert(Alert.AlertType.WARNING, "Denied Order Place !!").show();
+                    }
+
+                }else{
+                    new Alert(Alert.AlertType.WARNING, "Please First Add Customer To Make a Order !!").show();
+                }
 
             } else {
-                new Alert(Alert.AlertType.WARNING, "Please Add Some Medicine Items !!").show();
+                new Alert(Alert.AlertType.WARNING, "Please Add Some Medicine Items To Make a Order !!").show();
             }
         }else{
             new Alert(Alert.AlertType.WARNING, "Please Add Some Medicine Items !!").show();
@@ -364,13 +378,48 @@ public class AddOrderPageController implements Initializable {
     }
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        lblCustNameValue.setText("");
-        lblCustPhoneNumberValue.setText("");
-        lblCustEmailValue.setText("");
-        loadTable();
+    private double getDiscountValue(){
+        if(!txtDiscountValue.getText().isEmpty()){
+            try {
+                double discount = Double.parseDouble(txtDiscountValue.getText());
+
+                if(discount>=0 && discount<100){
+                    return discount;
+                }
+
+                txtDiscountValue.clear();
+                new Alert(Alert.AlertType.WARNING,"Invalid Discount Value !!").show();
+                return 0.0;
+
+            }catch (NumberFormatException e){
+                txtDiscountValue.clear();
+                new Alert(Alert.AlertType.WARNING,"Invalid Discount Format !!").show();
+            }
+        }
+        return 0;
     }
+
+    private void setGrandTotalValue(){
+        double discountValue = getDiscountValue();
+
+        double subTotal=0;
+        for(OrderCartTM orderCartTM: orderCartTMSList){
+            subTotal+=orderCartTM.getOrderTotal();
+        }
+
+        double tax=subTotal*0.05;
+        double netTotal=subTotal+tax;
+        double discount=netTotal*discountValue/100;
+
+        double grandTotal=netTotal-discount;
+
+        lblSubTotal.setText(String.format("%.2f", subTotal));
+        lblTax.setText(String.format("%.2f", tax));
+        lblDiscount.setText(String.format("%.2f", discount));
+        lblGrandTotal.setText(String.format("%.2f", grandTotal));
+
+    }
+
 
     private void loadTable(){
         clearAllFields();
@@ -455,6 +504,14 @@ public class AddOrderPageController implements Initializable {
         lblOrderIdValue.setText("");
 
         txtDeleteCartItemId.clear();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        lblCustNameValue.setText("");
+        lblCustPhoneNumberValue.setText("");
+        lblCustEmailValue.setText("");
+        loadTable();
     }
 
 }
