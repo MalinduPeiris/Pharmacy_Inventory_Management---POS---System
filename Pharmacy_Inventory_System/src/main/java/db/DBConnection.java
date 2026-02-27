@@ -11,7 +11,10 @@ public class DBConnection {
     private Connection connection;
 
     private DBConnection() throws SQLException {
-        connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy_db" , "root" , "malinduspp");
+        connection=DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/pharmacy_db" ,
+                "root" ,
+                "malinduspp");
     }
 
     public static DBConnection getInstance() throws SQLException {

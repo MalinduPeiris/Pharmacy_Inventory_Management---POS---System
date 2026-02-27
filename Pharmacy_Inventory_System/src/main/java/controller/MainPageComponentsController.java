@@ -111,12 +111,6 @@ public class MainPageComponentsController implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadExpiryTable();
-        loadBestSellingTable();
-        setLableValues();
-    }
 
     private void setLableValues() {
 
@@ -154,6 +148,12 @@ public class MainPageComponentsController implements Initializable {
 
         tblBestSelling.setItems(FXCollections.observableList(allBestSoldMedicine));
 
+    }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadExpiryTable();
+        loadBestSellingTable();
+        setLableValues();
     }
 }

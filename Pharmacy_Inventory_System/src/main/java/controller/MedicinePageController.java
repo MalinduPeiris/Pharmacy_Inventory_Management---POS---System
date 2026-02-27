@@ -1,6 +1,7 @@
 package controller;
 
 import com.jfoenix.controls.JFXComboBox;
+import db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +21,7 @@ import util.StatusType;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -98,6 +99,7 @@ public class MedicinePageController implements Initializable {
 
     @FXML
     private TextField txtSellingPrice;
+
 
     MedicineService medicineService= ServiceFactory.getInstance().getServiceType(ServiceType.MEDICINE);
 
@@ -297,11 +299,8 @@ public class MedicinePageController implements Initializable {
         new Alert(Alert.AlertType.INFORMATION,"Table Refreshed !!").show();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadTable();
-        loadComboBox();
-        setFieldsFromTable();
+    private void setExpiryItems(){
+        medicineService.updateExpiredItem();
     }
 
     private void loadTable(){
@@ -419,5 +418,13 @@ public class MedicinePageController implements Initializable {
                 medicine.getStatus().equals("expired") ? StatusType.expired : StatusType.discontinued ;
         cmbStatus.setValue(status);
         dateDate.setValue(medicine.getDate());
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadTable();
+        loadComboBox();
+        setFieldsFromTable();
+        setExpiryItems();
     }
 }

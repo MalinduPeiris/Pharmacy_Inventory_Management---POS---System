@@ -46,4 +46,8 @@ public class MedicineServiceImpl implements MedicineService {
     public boolean deleteMedicineDetails(int medicineId) throws SQLException {
         return repository.deleteMedicineDetails(medicineId);
     }
+
+    public void updateExpiredItem(){
+        repository.updateExpiredMedicines();
+    }
 }

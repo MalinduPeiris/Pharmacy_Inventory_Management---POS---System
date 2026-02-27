@@ -1,7 +1,6 @@
 package repository;
 
-import repository.custome.impl.DashboardRepositoryImpl;
-import repository.custome.impl.MedicineRepositoryImpl;
+import repository.custome.impl.*;
 import service.custome.impl.DashboardServiceImpl;
 import util.RepositoryType;
 import util.ServiceType;
@@ -22,6 +21,14 @@ public class RepositoryFactory {
                 return (T) new DashboardRepositoryImpl();
             case MEDICINE:
                 return (T) new MedicineRepositoryImpl();
+            case SUPPLIER:
+                return (T) new SupplierRepositoryImpl();
+            case ORDER:
+                return (T) new OrderRepositoryImpl();
+            case ORDERDETAIL:
+                return (T) new OrderDetailRepositoryImpl();
+            case CUSTOMER:
+                return (T) new CustomerRepositoryImpl();
         }
         return null;
     }

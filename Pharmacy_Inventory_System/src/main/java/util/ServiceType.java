@@ -2,5 +2,5 @@ package util;
 
 public enum ServiceType {
 
-    DASHBOARD,MEDICINE
+    DASHBOARD,MEDICINE,SUPPLIER,ORDER
 }

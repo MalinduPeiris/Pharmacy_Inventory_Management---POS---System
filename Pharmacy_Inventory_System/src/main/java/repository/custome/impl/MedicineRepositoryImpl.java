@@ -3,10 +3,12 @@ package repository.custome.impl;
 import db.DBConnection;
 import model.Medicine;
 import model.tm.MedicineTM;
+import model.tm.OrderCartTM;
 import repository.custome.DashboardRepository;
 import repository.custome.MedicineRepository;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,11 +48,16 @@ public class MedicineRepositoryImpl implements MedicineRepository {
         Connection connection = DBConnection.getInstance().getConnection();
 
         String sql="select medicine_id,name, brand , category ,dosage , supplier_id , " +
-                "purchase_price , selling_price , quantity , expiry_date , status from medicines WHERE name=? ";
+                "purchase_price , selling_price , quantity , expiry_date , status from medicines WHERE name=? OR " +
+                "medicine_id = ? OR status = ? OR category = ?";
 
         PreparedStatement psTM = connection.prepareStatement(sql);
 
         psTM.setString(1,mediName);
+        psTM.setString(2,mediName);
+        psTM.setString(3,mediName);
+        psTM.setString(4,mediName);
+
 
         ResultSet resultSet = psTM.executeQuery();
 
@@ -154,6 +161,56 @@ public class MedicineRepositoryImpl implements MedicineRepository {
         return psTM.executeUpdate()>0;
 
 
+    }
+
+
+    public boolean updateStock(List<OrderCartTM> saleItemList){
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+
+            for (OrderCartTM saleItem : saleItemList){
+                PreparedStatement psTM = connection.prepareStatement("UPDATE medicines SET quantity = quantity - ? " +
+                        "WHERE medicine_id = ?");
+                psTM.setInt(1,saleItem.getOrderQty());
+                psTM.setInt(2,saleItem.getMedicineId());
+
+                if(psTM.executeUpdate()<1){
+                    return false;
+                }
+            }
+
+            return true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void updateExpiredMedicines(){
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select medicine_id,expiry_date from medicines");
+
+            LocalDate date =LocalDate.now();
+            String updateSQL = "UPDATE medicines SET status = 'expired' WHERE medicine_id = ?";
+            PreparedStatement pst = connection.prepareStatement(updateSQL);
+
+            while (resultSet.next()) {
+
+                int medicineId = resultSet.getInt(1);
+                LocalDate expiryDate = resultSet.getDate(2).toLocalDate();
+
+                if (date.isAfter(expiryDate)) {
+                    pst.setInt(1, medicineId);
+                    pst.executeUpdate();
+                }
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 //    +" - "+resultSet.getString(2)+" ( "+resultSet.getString(3)+" )"

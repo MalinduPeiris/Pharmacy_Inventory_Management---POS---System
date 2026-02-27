@@ -187,7 +187,7 @@ public class MainPageController implements Initializable {
                     resource=this.getClass().getResource("/view/supplierPage.fxml");
                     break;
                 case "orders":
-                    resource=this.getClass().getResource("/view/loginPage.fxml");
+                    resource=this.getClass().getResource("/view/addOrderPage.fxml");
                     break;
                 case "sales":
                     resource=this.getClass().getResource("/view/loginPage.fxml");

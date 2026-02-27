@@ -126,17 +126,17 @@
             <TableColumn fx:id="colRegisterDate" prefWidth="101.60003662109375" text="REGISTER DATE" />
         </columns>
       </TableView>
-      <TextField fx:id="txtSearchSupplierByName" layoutX="49.0" layoutY="214.0" prefHeight="38.0" prefWidth="321.0" promptText="Search Supplier By Name ">
+      <TextField fx:id="txtSearchSupplierByName" layoutX="49.0" layoutY="214.0" prefHeight="38.0" prefWidth="272.0" promptText="Search Supplier By Name ">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtSearchSupplierByPhone" layoutX="395.0" layoutY="214.0" prefHeight="38.0" prefWidth="320.0" promptText="Search Supplier By PhoneNumber">
+      <TextField fx:id="txtSearchSupplierByPhone" layoutX="327.0" layoutY="214.0" prefHeight="38.0" prefWidth="272.0" promptText="Search Supplier By PhoneNumber">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <JFXButton layoutX="732.0" layoutY="214.0" onAction="#btnSearchSupplierOnAction" prefHeight="38.0" prefWidth="233.0" style="-fx-background-color: #006266;" text="Search Supplier" textFill="WHITE">
+      <JFXButton layoutX="610.0" layoutY="214.0" onAction="#btnSearchSupplierOnAction" prefHeight="38.0" prefWidth="182.0" style="-fx-background-color: #006266;" text="Search Supplier" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -181,9 +181,29 @@
             <Image url="@../img/delete.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="18.0" fitWidth="21.0" layoutX="754.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="18.0" fitWidth="21.0" layoutX="618.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/magnifying-glass.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="lblSupplierIdText" fill="#269e30" layoutX="34.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier ID : ">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblSupplierIdValue" fill="#269e30" layoutX="137.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0000" textAlignment="RIGHT" wrappingWidth="65.52059936523438">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="803.0" layoutY="214.0" onAction="#btnReloadTableOnAction" prefHeight="38.0" prefWidth="157.0" style="-fx-background-color: #e1b12c;" text="Reload Table" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="18.0" fitWidth="21.0" layoutX="811.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/reload.png" />
          </image>
       </ImageView>
    </children>
