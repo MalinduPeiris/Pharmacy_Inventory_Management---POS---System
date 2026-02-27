@@ -46,11 +46,16 @@ public class MedicineRepositoryImpl implements MedicineRepository {
         Connection connection = DBConnection.getInstance().getConnection();
 
         String sql="select medicine_id,name, brand , category ,dosage , supplier_id , " +
-                "purchase_price , selling_price , quantity , expiry_date , status from medicines WHERE name=? ";
+                "purchase_price , selling_price , quantity , expiry_date , status from medicines WHERE name=? OR " +
+                "medicine_id = ? OR status = ? OR category = ?";
 
         PreparedStatement psTM = connection.prepareStatement(sql);
 
         psTM.setString(1,mediName);
+        psTM.setString(2,mediName);
+        psTM.setString(3,mediName);
+        psTM.setString(4,mediName);
+
 
         ResultSet resultSet = psTM.executeQuery();
 
