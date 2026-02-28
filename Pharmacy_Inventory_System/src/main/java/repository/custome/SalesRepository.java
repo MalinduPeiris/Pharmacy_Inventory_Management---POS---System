@@ -1,5 +1,6 @@
 package repository.custome;
 
+import model.Sales;
 import model.tm.OrderCartTM;
 import model.tm.SalesTM;
 import repository.CrudRepository;
@@ -11,6 +12,8 @@ public interface SalesRepository extends CrudRepository<SalesTM,Integer> {
 
     List<SalesTM> getAllSaleDetails() throws SQLException;
 
+    List<String> getSalesPageRectanglesValue() throws SQLException;
 
+    Sales getSaleDetailsById(String data) throws SQLException;
 
 }

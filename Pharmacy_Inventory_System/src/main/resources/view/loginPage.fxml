@@ -73,5 +73,11 @@
             <Font size="18.0" />
          </font>
       </Text>
+      <Text fx:id="lblUserNamePassword" fill="#2bae22" layoutX="952.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username : m    &amp; Password :123" textAlignment="CENTER" wrappingWidth="288.736572265625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="1265.0" layoutY="16.0" onAction="#btnHintOnAction" prefHeight="26.0" prefWidth="195.0" style="-fx-background-color: white;" text="Username Password Hint" />
    </children>
 </AnchorPane>

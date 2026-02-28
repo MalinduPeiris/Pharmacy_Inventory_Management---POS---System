@@ -3,6 +3,7 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -11,12 +12,12 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LogingController {
+public class LogingController implements Initializable {
 
-    private final String adminName="m";
-    private final String adminPassword="1";
-    public Text lblAlert;
+    private final String ADMINNAME="m";
+    private final String ADMINPASSWORD="123";
 
 
     @FXML
@@ -28,6 +29,10 @@ public class LogingController {
     @FXML
     private TextField txtUserName;
 
+    public Text lblAlert;
+    public Text lblUserNamePassword;
+
+
     public void btnSignInOnAction(ActionEvent actionEvent) {
         lblAlert.setText("");
         lblAlert.setStyle("-fx-text-fill: #ff0000;");
@@ -35,8 +40,8 @@ public class LogingController {
             if (!txtPassword.getText().isEmpty()){
                 String username =txtUserName.getText();
                 String password=txtPassword.getText();
-                if(username.equals(adminName)){
-                    if (password.equals(adminPassword)){
+                if(username.equals(ADMINNAME)){
+                    if (password.equals(ADMINPASSWORD)){
                         lblAlert.setStyle("-fx-fill: #00d933;");
                         lblAlert.setText("Logging Success !!");
 
@@ -76,5 +81,14 @@ public class LogingController {
         }
 
 
+    }
+
+    public void btnHintOnAction(ActionEvent actionEvent) {
+        lblUserNamePassword.setVisible(true);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        lblUserNamePassword.setVisible(false);
     }
 }

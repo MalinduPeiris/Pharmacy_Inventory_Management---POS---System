@@ -1,5 +1,6 @@
 package service.custome.impl;
 
+import model.Sales;
 import model.tm.SalesTM;
 import repository.RepositoryFactory;
 import repository.custome.SalesRepository;
@@ -16,5 +17,15 @@ public class SaleServiceImpl implements SaleService {
     @Override
     public List<SalesTM> getAllSaleDetails() throws SQLException {
         return salesRepository.getAllSaleDetails();
+    }
+
+    @Override
+    public List<String> getSalesPageRectanglesValue() throws SQLException {
+        return salesRepository.getSalesPageRectanglesValue();
+    }
+
+    @Override
+    public Sales getSaleDetailsById(String data) throws SQLException {
+        return salesRepository.getSaleDetailsById(data);
     }
 }

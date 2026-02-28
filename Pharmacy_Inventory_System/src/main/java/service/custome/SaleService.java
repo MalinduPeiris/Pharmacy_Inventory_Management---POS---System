@@ -1,5 +1,6 @@
 package service.custome;
 
+import model.Sales;
 import model.tm.SalesTM;
 import service.SuperService;
 
@@ -10,5 +11,8 @@ public interface SaleService extends SuperService {
 
     List<SalesTM> getAllSaleDetails() throws SQLException;
 
+    List<String> getSalesPageRectanglesValue() throws SQLException;
+
+    Sales getSaleDetailsById(String data) throws SQLException;
 
 }

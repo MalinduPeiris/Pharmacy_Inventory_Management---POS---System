@@ -123,7 +123,7 @@ public class DashboardRepositoryImpl implements DashboardRepository {
             Statement statement = connection.createStatement();
 
             ResultSet resultSet = statement.executeQuery(
-                    "select SUM(total_amount) FROM sales WHERE DATE(sale_date) = CURDATE()"
+                    "select SUM(net_total) FROM sales WHERE DATE(sale_date) = CURDATE()"
             );
 
             if(resultSet.next()){
