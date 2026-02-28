@@ -29,6 +29,8 @@ public class RepositoryFactory {
                 return (T) new OrderDetailRepositoryImpl();
             case CUSTOMER:
                 return (T) new CustomerRepositoryImpl();
+            case SALES:
+                return (T) new SalesRepositoryImpl();
         }
         return null;
     }

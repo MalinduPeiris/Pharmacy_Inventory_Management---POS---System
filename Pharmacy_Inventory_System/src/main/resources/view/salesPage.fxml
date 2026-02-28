@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1502.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SalesPageController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#efefef" height="730.0" layoutX="-1.0" layoutY="-3.0" stroke="WHITE" strokeType="INSIDE" width="1514.0" />
+      <Text layoutX="27.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Directory">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font></Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="26.0" layoutY="59.0" stroke="WHITE" strokeType="INSIDE" width="343.0" />
+      <Text fill="#666666" layoutX="39.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TODAY'S REVENUE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblTodayRevenue" layoutX="39.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rs. 0000.00" wrappingWidth="213.71743774414062">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="49.0" fitWidth="41.0" layoutX="315.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/dollar-symbol.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="399.0" layoutY="58.0" stroke="WHITE" strokeType="INSIDE" width="343.0" />
+      <Text fill="#666666" layoutX="412.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TODAY HIGHEST TRANSACTION ORDER">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblHighestOrder" layoutX="412.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rs. 0000.00" wrappingWidth="215.8507080078124">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="49.0" fitWidth="41.0" layoutX="683.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/profit-up.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="769.0" layoutY="57.0" stroke="WHITE" strokeType="INSIDE" width="343.0" />
+      <Text fill="#666666" layoutX="782.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ALL TRANSACTION ">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblTransactionCount" layoutX="783.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0000" wrappingWidth="210.55517578125">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="49.0" fitWidth="41.0" layoutX="1053.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/exchange.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="1144.0" layoutY="56.0" stroke="WHITE" strokeType="INSIDE" width="343.0" />
+      <Text fill="#666666" layoutX="1156.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BEST SELLING ITEM">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblBestSellingItem" layoutX="1155.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAINKILLER" wrappingWidth="170.130859375">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="49.0" fitWidth="41.0" layoutX="1437.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/dollar-symbol.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="lblSoldBestSellingItemCount" fill="#666666" layoutX="1325.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOLD (000)" textAlignment="RIGHT" wrappingWidth="103.5516357421875">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="527.0" layoutX="27.0" layoutY="181.0" stroke="WHITE" strokeType="INSIDE" width="955.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="527.0" layoutX="1004.0" layoutY="182.0" stroke="WHITE" strokeType="INSIDE" width="484.0" />
+      <Text fx:id="lblSelectedSaleId" layoutX="1027.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SALE ID : 0000" wrappingWidth="234.39999999999986">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblOrderDate" fill="#666666" layoutX="1244.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0000 - 00 - 00" textAlignment="RIGHT" wrappingWidth="234.39999999999986">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Text>
+      <Line fx:id="line1" endX="337.666748046875" layoutX="1124.0" layoutY="266.0" startX="-97.5333251953125" />
+      <JFXButton layoutX="1092.0" layoutY="649.0" onAction="#btnPrintReceiptOnAction" prefHeight="38.0" prefWidth="298.0" style="-fx-background-color: #a3d9ec;" text="Print Receipt" textAlignment="CENTER" textFill="#2497c4">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tblSales" layoutX="34.0" layoutY="287.0" prefHeight="412.0" prefWidth="940.0" stylesheets="@../css/table.css">
+        <columns>
+          <TableColumn fx:id="colSaleId" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="colOrderDate" prefWidth="111.73335266113281" text="ORDER DATE" />
+            <TableColumn fx:id="colCustName" prefWidth="153.6000213623047" text="CUSTOMER" />
+            <TableColumn fx:id="colItems" prefWidth="326.3999938964844" text="ITEMS" />
+            <TableColumn fx:id="colSubTotal" prefWidth="95.73342895507812" text="SUB TOTAL" />
+            <TableColumn fx:id="colDiscount" prefWidth="80.00009155273438" text="DISCOUNT" />
+            <TableColumn fx:id="colNetTotal" prefWidth="99.4666748046875" text="NET TOTAL" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtSearchSale" layoutX="59.0" layoutY="193.0" prefHeight="41.0" prefWidth="422.0" promptText="Search By ID , CustomerName , PhoneNumber">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </TextField>
+      <JFXButton layoutX="738.0" layoutY="194.0" onAction="#btnReloadSalesTableOnAction" prefHeight="30.0" prefWidth="234.0" style="-fx-background-color: #e1b12c;" text="Reload" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton><JFXButton layoutX="493.0" layoutY="194.0" onAction="#btnSearchSaleOnAction" prefHeight="30.0" prefWidth="234.0" style="-fx-background-color: #192a56;" text="Search" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="19.0" />
+      </font>
+   </JFXButton>
+      <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="503.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/magnifying-glass.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="749.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/reload.png" />
+         </image>
+      </ImageView>
+      <Text fill="#666666" layoutX="1145.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Details" textAlignment="CENTER" wrappingWidth="202.6080322265625">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblCustomerNameText" fill="#666666" layoutX="1024.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name : " textAlignment="CENTER" wrappingWidth="134.26025390625">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblCustomerEmailText" fill="#666666" layoutX="1027.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email                   : " wrappingWidth="134.26025390625">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblCustomerPhoneText" fill="#666666" layoutX="1027.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number  :" wrappingWidth="134.26025390625">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblBoughtItemText" fill="#666666" layoutX="1027.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bought Items     :" wrappingWidth="126.26025390625">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Line fx:id="line2" endX="337.666748046875" layoutX="1126.0" layoutY="376.0" startX="-97.5333251953125" />
+      <Text fx:id="lblOrderQtyText" fill="#666666" layoutX="1028.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order QTY         : " wrappingWidth="126.26025390625">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblSubTotalText" fill="#1661c4" layoutX="1027.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sub Total " wrappingWidth="126.26025390625">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblTaxText" fill="#e11919" layoutX="1027.0" layoutY="535.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tax " wrappingWidth="126.26025390625">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblNetTotalText" fill="#1661c4" layoutX="1027.0" layoutY="628.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Net Total " wrappingWidth="126.26025390625">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblDiscountText" fill="#2a9e62" layoutX="1029.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discount " wrappingWidth="126.26025390625">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Line fx:id="line3" endX="337.666748046875" layoutX="1125.0" layoutY="475.0" startX="-97.5333251953125" />
+      <Text fill="#666666" layoutX="58.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Or Select Item to Show Sale Details Or Print ">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Line fx:id="line4" endX="337.666748046875" layoutX="1124.0" layoutY="582.0" startX="-97.5333251953125" />
+      <Text fx:id="lblSubTotalValue" fill="#1661c4" layoutX="1171.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0000.00" textAlignment="RIGHT" wrappingWidth="275.060302734375">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblTaxValue" fill="#e11919" layoutX="1171.0" layoutY="535.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" textAlignment="RIGHT" wrappingWidth="275.060302734375">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblNetTotalValue" fill="#1661c4" layoutX="1171.0" layoutY="621.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0000.00" textAlignment="RIGHT" wrappingWidth="275.060302734375">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblDiscountValue" fill="#2a9e62" layoutX="1173.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" textAlignment="RIGHT" wrappingWidth="275.060302734375">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblCustomerNameValue" layoutX="1157.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="saman" wrappingWidth="308.6602783203125">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblCustomerEmailValue" layoutX="1157.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sample@email.com" wrappingWidth="308.6602783203125">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblCustomerPhoneValue" layoutX="1157.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0700000000" wrappingWidth="308.6602783203125">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblBoughtItemValue" layoutX="1157.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sample, sample, sample" wrappingWidth="308.6602783203125">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblOrderQtyValue" layoutX="1158.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="308.6602783203125">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
